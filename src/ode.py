@@ -1,4 +1,4 @@
-from quantum import *
+from src.quantum import *
 
 @jax.jit
 def schrodinger(U, args):

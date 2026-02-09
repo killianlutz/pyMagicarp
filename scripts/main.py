@@ -59,7 +59,7 @@ v0 = jax.random.normal(key2, su_dim)  # coefficients of g0
 v1 = optimize(v0, q)
 g1 = su_matrix(v1, su_basis)
 m = metrics(v1, q, args)
-print(f"IF: {m[0]:.1e} |||| T: {m[1]:.2f}")
+print(f"Infidelity: {m[0]:.1e} |||| Gate time: {m[1]:.2f}")
 
 
 # # solve simultaneously over multiple gates

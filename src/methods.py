@@ -1,5 +1,5 @@
-from ode import *
-from optimize import *
+from src.ode import *
+from src.optimize import *
 
 def final_state(g, hp):
     U0, H, nt = hp
