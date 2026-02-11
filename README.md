@@ -1,7 +1,7 @@
 ### Forewords 
 This code is a proof of concept designed to solve a minimal-time transfer problems on the special unitary group $SU(d)$ applied to the control of driftless closed quantum systems, as detailled in [Janković et al. (2025)](https://arxiv.org/abs/2505.21203). 
 
-This code is written in the JAX ecosystem using Python version `3.14.0`. The solver is based on a natural gradient descent in the discretize-then-optimize paradigm, also known as direct method.
+This code is written in the `JAX` ecosystem using `Python` version `3.14.0`. The solver is based on a natural gradient descent in the discretize-then-optimize paradigm, also known as direct method.
 
 ### Getting started 
 Open the terminal and run
@@ -24,7 +24,7 @@ Run the optimizer
 python -m scripts.main
 ```
 
-This creates or overwrites the file './sims/example.npz' to store both the target gate and the optimal control.
+This creates or overwrites the file `./sims/example.npz` to store both the target gate and the optimal control.
 
 ### Mathematical details
 We are given $m$ orthonormal control Hamiltonians $H_1, \ldots, H_m$ generating the Lie algebra of $SU(d)$ and a target special unitary gate $U_{\mathrm{target}}$. We then optimize for the self-adjoint traceless matrix $g$ minimizing
