@@ -20,11 +20,9 @@ python -m scripts.main
 ```
 
 ### Mathematical details
-We are given $m$ orthonormal control Hamiltonians $H_1, \ldots, H_m$ generating the Lie algebra of $SU(d)$ and a target special unitary gate $U_{\mathrm{target}}$. We then optimize for the self-adjoint traceless matrix $g$ minimizing $$T = \sqrt{\sum_{j=1}^m \operatorname{Tr}\left(H_{j}g\right)^2}$$
+We are given $m$ orthonormal control Hamiltonians $H_1, \ldots, H_m$ generating the Lie algebra of $SU(d)$ and a target special unitary gate $U_{\mathrm{target}}$. We then optimize for the self-adjoint traceless matrix $g$ minimizing $$T = \sqrt{\sum_{j=1}^m \mathrm{Tr}\left(H_{j}g\right)^2}$$
 subject to the constraint that the solution $U_g(\cdot)$ of 
-\begin{align}
-    \dot{U} &= -\mathrm{i}\sum_{j=1}^m \operatorname{Re} \operatorname{Tr}\left(U^\dagger H_{j}U g\right)H_j U, \quad 0 < t < 1
-\end{align}
+$$ \dot{U} &= -\mathrm{i}\sum_{j=1}^m \mathrm{Re} \mathrm{Tr}\left(U^\dagger H_{j}U g\right)H_j U, \quad 0 < t < 1 $$
 starting at $U(0) = I$ reaches the target at time $t = 1$, that is $U_g(1) = U_{\mathrm{target}}$.
 
 **Caveats**: at the moment, the solver only solves for a control $g$ such that $U_g(1) = U_{\mathrm{target}}$.
