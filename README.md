@@ -11,7 +11,6 @@ git clone https://github.com/killianlutz/pyMagicarp.git
 Create and activate a new virtual environment
 ```
 python -m venv magicarp
-
 source magicarp/bin/activate
 ```
 
