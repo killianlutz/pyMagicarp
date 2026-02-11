@@ -24,6 +24,8 @@ Run the optimizer
 python -m scripts.main
 ```
 
+This creates or overwrites the file './sims/example.npz' to store both the target gate and the optimal control.
+
 ### Mathematical details
 We are given $m$ orthonormal control Hamiltonians $H_1, \ldots, H_m$ generating the Lie algebra of $SU(d)$ and a target special unitary gate $U_{\mathrm{target}}$. We then optimize for the self-adjoint traceless matrix $g$ minimizing
 

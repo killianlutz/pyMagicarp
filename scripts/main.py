@@ -1,3 +1,5 @@
+import numpy as np
+
 from src.methods import *
 
 key = jax.random.PRNGKey(0)
@@ -61,6 +63,8 @@ g1 = su_matrix(v1, su_basis)
 m = metrics(v1, q, args)
 print(f"Infidelity: {m[0]:.1e} |||| Gate time: {m[1]:.2f}")
 
+# save target and solution to a file
+jnp.savez("./sims/example.npz", target=q, control=g1)
 
 # # solve simultaneously over multiple gates
 # batch_size = 10
