@@ -12,7 +12,7 @@ Activate the virtual environment
 source magicarp/bin/activate
 ```
 
-and run the optimizer
+Run the optimizer
 ```
 python -m scripts.main
 ```
