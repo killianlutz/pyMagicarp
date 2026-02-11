@@ -8,10 +8,16 @@ Open the terminal and run
 ```
 git clone https://github.com/killianlutz/pyMagicarp.git
 ```
-
-Activate the virtual environment 
+Create and activate a new virtual environment
 ```
+python -m venv magicarp
+
 source magicarp/bin/activate
+```
+
+Install the required packages
+```
+pip install -r requirements.txt
 ```
 
 Run the optimizer
