@@ -44,7 +44,7 @@ def optimize(v, q):
 
 @jax.jit
 def map_optimize(v, q):
-    return jax.vmap(optimize, (1, 2), 0)(v, q)
+    return jax.vmap(optimize, (0, 2), 0)(v, q)
 
 
 ####################################################
@@ -68,8 +68,21 @@ jnp.savez("./sims/example.npz", target=q, control=g1)
 
 # solve simultaneously over multiple gates
 # batch_size = 10
-# qs = jnp.stack([sampleSU(dim, key3) for _ in range(batch_size)], axis=2)
-# v0s = jax.random.normal(key4, (su_dim, batch_size))
+# keys = jax.random.split(key3, num=batch_size)
+# qs = jnp.stack([sampleSU(dim, keys[i]) for i in range(batch_size)], axis=2)
+# keys = jax.random.split(key4, num=batch_size)
+# v0s = jnp.stack([jax.random.normal(keys[i], su_dim) for i in range(batch_size)], axis=0)
+#
 # v1s = map_optimize(v0s, qs)
-# m = jax.vmap(metrics, (0, 2, None), 0)(v1s, qs, args)
-# print(m)
+# ms = jax.vmap(metrics, (0, 2, None), 0)(v1s, qs, args)
+# print(ms)
+
+#
+# gs = jax.vmap(su_matrix, (0, None), 0)(v1s, su_basis)
+# g0s = jax.vmap(su_matrix, (1, None), 0)(v0s, su_basis)
+# jnp.savez("./sims/targets.npz", target=qs)
+# jnp.savez("./sims/controls.npz", control=gs)
+# jnp.savez("./sims/metrics.npz", metrics=ms)
+# jnp.savez("./sims/initcontrols.npz", initcontrols=g0s)
+
+
