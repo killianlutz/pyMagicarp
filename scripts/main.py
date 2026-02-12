@@ -1,5 +1,3 @@
-import numpy as np
-
 from src.methods import *
 
 key = jax.random.PRNGKey(0)
@@ -30,7 +28,9 @@ lsearch_args = (a, b, ls_atol)
 ##########################
 # OPTIMIZER
 ##########################
-reg = lambda v, q, args: cost(v, q, args)
+# # least-squares Tikhonov regularization
+# reg = lambda v, q, args: cost(v, q, args)
+reg = lambda v, q, args: 1e-3
 method_args = (reg,)
 method = natgrad
 routine = setup_routine(method, method_args, args, lsearch_args)
@@ -66,9 +66,10 @@ print(f"Infidelity: {m[0]:.1e} |||| Gate time: {m[1]:.2f}")
 # save target and solution to a file
 jnp.savez("./sims/example.npz", target=q, control=g1)
 
-# # solve simultaneously over multiple gates
+# solve simultaneously over multiple gates
 # batch_size = 10
 # qs = jnp.stack([sampleSU(dim, key3) for _ in range(batch_size)], axis=2)
 # v0s = jax.random.normal(key4, (su_dim, batch_size))
 # v1s = map_optimize(v0s, qs)
-# jax.vmap(metrics, (0, 2, None), 0)(v1s, qs, args)
+# m = jax.vmap(metrics, (0, 2, None), 0)(v1s, qs, args)
+# print(m)
