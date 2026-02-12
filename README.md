@@ -1,5 +1,5 @@
 ### Forewords 
-This code is a proof of concept designed to solve a minimal-time transfer problems on the special unitary group $SU(d)$ applied to the control of driftless closed quantum systems, as detailled in [Janković et al. (2025)](https://arxiv.org/abs/2505.21203). 
+This code is a proof of concept designed to solve a minimal-time transfer problem on the special unitary group $SU(d)$ applied to the control of driftless closed quantum systems, as detailled in [Janković et al. (2025)](https://arxiv.org/abs/2505.21203). 
 
 This code is written in the `JAX` ecosystem using `Python` version `3.14.0`. The solver is based on a natural gradient descent in the discretize-then-optimize paradigm, also known as direct method.
 
